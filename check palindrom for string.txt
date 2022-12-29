@@ -1,0 +1,45 @@
+.......................................Naive solution..........................................................
+
+
+import java.util.*;
+public class Main {
+    public static boolean pali(String s){
+        int n = s.length();
+        String rev = "";
+        for(int i=n-1;i>=0;i--){
+            rev=rev+s.charAt(i);
+        }if(s.equals(rev)){
+            return true;
+        }return false;
+    }
+    public static void main(String[] args) {
+        String s = "abbaa";
+        int n = s.length();
+        System.out.print(pali(s));
+        
+    }
+}
+
+
+---------------------------------------A two pointer approach----------------------------------------------------------
+
+import java.util.*;
+public class Main {
+    public static boolean pali(String s){
+       int low=0;
+        int high=s.length()-1;
+        while(low<high){
+            if(s.charAt(low) != s.charAt(high))
+                return false;
+            
+            low++;
+            high--;
+        }return true;
+    }
+    public static void main(String[] args) {
+        String s = "abba";
+        int n = s.length();
+        System.out.print(pali(s));
+        
+    }
+}

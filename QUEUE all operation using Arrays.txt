@@ -1,0 +1,66 @@
+
+public class Main {
+    int n = 1000;
+    int arr[] = new int[n];
+    int front = 0;
+    int rear = 0;
+    public void enqueue(int val){
+        if(front == n){
+            System.out.print("queue is full");
+            return;
+        }
+        else{
+            arr[rear] = val;
+            rear++;
+            return;
+        }
+    }
+    public void front(){
+        if(front == rear){
+            System.out.print("queue is empty");
+            return;
+        }
+        else{
+            System.out.print(arr[front]);
+            return;
+        }
+    }
+    public void dequeue(){
+        if(front == rear){
+            System.out.println("queue is empty");
+            return;
+        }
+        else{
+            System.out.println(+arr[front]);
+            front++;
+            return;
+        }
+    }
+    public void print(){
+        if(front == rear){
+            System.out.print("queue is empty");
+        }
+        else{
+            for(int i=front;i<rear;i++){
+                System.out.println(arr[i]+" ");
+            }
+        }
+    }
+    public static void main(String[] args) {
+        Main q = new Main();
+        
+       q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        q.enqueue(40);
+        q.print();
+        q.front();
+        
+        q.dequeue();
+          q.dequeue();
+          q.dequeue();
+          q.dequeue();
+          q.dequeue();
+          
+    }
+}

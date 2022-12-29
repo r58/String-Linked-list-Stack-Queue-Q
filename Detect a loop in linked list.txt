@@ -1,0 +1,46 @@
+public class Main{
+    static Node head;
+    static class Node{
+        int data;
+        Node next;
+        
+        Node(int val){
+            data = val;
+            next = null;
+        }
+    }public void addfirst(int val){
+        Node newNode = new Node(val);
+        newNode.next = head;
+        head = newNode;
+    }static boolean loop(Node h){
+        HashSet<Node>s = new HashSet<>();
+        while(h!=null){
+            if(s.contains(h))
+                return true;
+            
+             // If we are seeing the node for
+            // the first time, insert it in hash
+            
+            s.add(h);
+            h = h.next;
+        }
+        return false;
+    }
+    public static void main(String[] args){
+        Main s = new Main();
+        
+        s.addfirst(10);
+        s.addfirst(20);
+        s.addfirst(30);
+    
+        
+         s.head.next.next.next = s.head;
+        
+        
+         if (loop(head))
+            System.out.println("Loop found");
+        else
+            System.out.println("No Loop");
+        
+    }
+}

@@ -1,0 +1,53 @@
+public class Main{
+    static Node head;
+    static class Node{
+        int data;
+        Node next;
+        
+        Node (int val){
+            data = val;
+            next = null;
+        }
+    }
+   
+    public void move(){
+        if(head == null || head.next == null)
+            return;
+        
+        Node seclast = null;
+        Node last = head;
+        
+        while(last.next!=null){
+            seclast = last;
+            last = last.next;
+        }
+        seclast.next = null;
+        last.next = head;
+        head = last;
+    }
+    public void addfirst(int val){
+        Node newNode = new Node(val);
+        newNode.next = head;
+        head = newNode;
+    }
+
+    public void print(){
+        Node tem = head;
+        while(tem!=null){
+            System.out.println(tem.data);
+            tem = tem.next;
+        }
+    }
+    public static void main(String[] args){
+        Main s = new Main();
+        
+        s.addfirst(10);
+        s.addfirst(20);
+        s.addfirst(30);
+        s.addfirst(40);
+        
+        s.move();
+        s.print();
+        
+    }
+}

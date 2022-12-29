@@ -1,0 +1,53 @@
+public class Main{
+    static Node head;
+    static class Node{
+        int data;
+        Node next;
+        
+        Node(int val){
+            data = val;
+            next  = null;
+        }
+    }
+   public Node reverse(Node head,int k){
+       if(head == null)
+           return null;
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+       int count = 0;
+        while(current!=null & count<k){
+            next = current.next;
+            current.next = prev;
+           prev = current;
+            current = next;
+            count++;
+        }if(next!=null)
+            head.next = reverse(next,k);
+       return prev;
+    }
+    public void addfirst(int val){
+        Node newNode = new Node(val);
+        newNode.next  = head;
+        
+        head = newNode;
+    }
+    public void print(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+    }
+    public static void main(String[] args){
+        Main s = new Main();
+        s.addfirst(10);
+         s.addfirst(20);
+         s.addfirst(30);
+         s.addfirst(40);
+        //s.print();
+        head = s.reverse(s.head,3);
+        s.print();
+        
+    }
+}

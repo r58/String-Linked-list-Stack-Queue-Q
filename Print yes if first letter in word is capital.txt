@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    // Read the number of test cases
+    int T = scanner.nextInt();
+
+    // Loop through each test case
+    for (int i = 0; i < T; i++) {
+      // Read the word
+      String word = scanner.next();
+
+      // Check if the first letter is capital
+      if (Character.isUpperCase(word.charAt(0))) {
+        System.out.println("Yes");
+      } else {
+        System.out.println("No");
+      }
+    }
+  }
+}
